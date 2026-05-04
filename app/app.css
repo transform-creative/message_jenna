@@ -1,5 +1,5 @@
 :root {
-  font-family: "Poppins", sans-serif;
+  font-family: "sniglet", sans-serif;
   line-height: 1;
   overflow-anchor: none;
 
@@ -9,7 +9,7 @@
   color-scheme: light;
   --txt: #1e1e1e;
   --bkg: #ffffff;
-  --accent: #f5ae3e;
+  --accent: #f1acff;
   --secondary: #c7b08b;
   --accent-sm: #f9f9f9;
   --accent-md: #cecece;
@@ -18,7 +18,7 @@
     to left,
     #f8f8f8,
     #f8f8f8,
-    #f6d7a5
+    #f2a5f6
   );
   --warning: #faae88;
   --safe: #c8fa88;
@@ -28,8 +28,8 @@
   --border: 12.5px;
   --border-high: 25px;
 
-  --font-primary: "poppins";
-  --font-secondary: "poppins";
+  --font-primary: "sniglet";
+  --font-secondary: "elms sans";
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -59,7 +59,7 @@
 }
 
 body {
-  background: linear-gradient(to left, #f8f8f8, #f8f8f8, #f6d7a5);
+  background: linear-gradient(to left, #f8f8f8, #ffd4fe);
   margin: 0;
 }
 
@@ -68,7 +68,7 @@ p {
   font-family: var(--font-primary), sans-serif;
   margin: 0px;
   line-height: 1.5;
-  font-size: 10pt;
+  font-size: 14pt;
   font-weight: 400 !important;
   color: var(--txt);
 }
@@ -119,28 +119,30 @@ label {
 
 /********* Basic elements ***********/
 input {
-  font-family: var(--font-primary), sans-serif;
-  color: var(--txt);
-  background: var(--bg);
-  height: 3em;
+  font-size: 14pt;
+  font-family: var(--font-secondary), sans-serif;
+  background-color: var(--bg);
+  background-color: #f8f8f8;
+  resize: vertical;
+  border: none;
 
-  border: 0px solid var(--accent-lg);
   border-radius: var(--border);
-
+  
   text-indent: 10px;
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
 
   width: 100%;
 
-  transition: 0.25s;
+  transition: 0.2s;
 }
 
 input:focus {
-  outline: none;
+    outline: none;
   color: var(--txt);
-  box-shadow: 10px -10px 50px -30px var(--accent) inset;
+  box-shadow: 0 0 0px 3px var(--accent) inset;
 
+  background-color: var(--bg);
   transition: 0.25s;
 }
 
@@ -150,15 +152,17 @@ input:disabled {
 }
 
 textarea {
-  font-family: var(--font-primary), sans-serif;
+    font-size: 14pt;
+  font-family: var(--font-secondary), sans-serif;
   background-color: var(--bg);
-
+  background-color: #f8f8f8;
   resize: vertical;
-  border: 1px solid var(--accent-lg);
+  border: none;
 
   border-radius: var(--border);
 
-  padding: 10px;
+  padding: 10px 10px;
+  
   margin: 0;
 
   width: 100%;
@@ -400,6 +404,11 @@ th {
 .outline.txt {
   box-shadow: 0 0 0 1px inset var(--accent-lg);
   transition: 0.2s;
+}
+
+.outline-accent {
+    box-shadow: 0 0 0 1px inset var(--accent);
+
 }
 
 .outline.accent {

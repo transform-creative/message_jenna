@@ -15,14 +15,12 @@ import {
   PopAlertFn,
   SharedContextProps,
 } from "./data/CommonTypes";
-import { supabaseSignOut } from "./database/Auth";
 import Alert from "./presentation/elements/Alert";
 import { RefObject, useEffect, useRef, useState } from "react";
 import { supabase } from "./database/SupabaseClient";
 import { Session } from "@supabase/supabase-js";
 import { NavBar } from "./presentation/elements/NavBar";
 import { CONTACT } from "./data/Objects";
-import { PaymentStepper } from "./presentation/elements/PaymentStepper/PaymentStepper";
 
 
 export const links: Route.LinksFunction = () => [
@@ -34,12 +32,12 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Sniglet:wght@400;800&display=swap",
   },
-  {
-rel: "stylesheet",
-href: "https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
-}
+//   {
+// rel: "stylesheet",
+// href: "https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+// }
 ];
 
 export function HydrateFallback() {
@@ -125,11 +123,6 @@ export default function App() {
 
   return (
     <>
-      <NavBar
-        context={
-          context
-        }
-      />
       <Outlet
         context={
           context
