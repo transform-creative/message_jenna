@@ -1,0 +1,52 @@
+input[role="labelInput"] {
+  height: auto !important;
+  padding: 5px 0;
+  background-color: var(--background);
+}
+
+input[role="labelInput"]:focus {
+  box-shadow: none !important;
+}
+
+input[role="labelInput"]:disabled {
+  box-shadow: none !important;
+  background-color: var(--accent-md) !important;
+  cursor: not-allowed;
+}
+
+textarea[role="labelInput"] {
+  height: auto !important;
+  padding: 5px 0;
+}
+
+textarea[role="labelInput"]:focus {
+  box-shadow: none !important;
+  background-color: var(--accent-sm);
+}
+
+textarea[role="labelInput"]:disabled {
+  box-shadow: none !important;
+  background-color: var(--accent-md);
+  cursor: not-allowed;
+}
+
+.labelInput {
+  background: var(--accent-sm);
+  border-radius: var(--border);
+  border: 1px solid var(--secondary);
+  transition: 0.25s;
+
+  cursor: text;
+}
+
+.labelInput[role="disabled"] {
+  background: var(--accent-md);
+  transition: 0.25s;
+
+  cursor: not-allowed;
+}
+
+.labelInputSelected {
+  background: var(--accent-sm);
+  outline: 2px solid var(--accent);
+}
