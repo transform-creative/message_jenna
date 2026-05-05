@@ -1,4 +1,4 @@
-import { Home } from "~/presentation/home";
+import { Home } from "~/presentation/Home";
 import { Route } from "../+types/root";
 
 export function meta({}: Route.MetaArgs) {
