@@ -19,7 +19,8 @@ import { JennaImages } from "./JennaImages";
 export interface HomeProps {}
 
 export function Home({}: HomeProps) {
-  const context:SharedContextProps = useOutletContext<SharedContextProps>();
+  const context: SharedContextProps =
+    useOutletContext<SharedContextProps>();
 
   const [messageText, setMessageText] =
     useState("");
@@ -92,14 +93,24 @@ export function Home({}: HomeProps) {
           zIndex: 10,
         }}
       >
-        <Icon name="heart" size={50} color="var(--accent)" />
+        <Icon
+          name="heart"
+          size={50}
+          color="var(--accent)"
+        />
         <div
-          className="m-10"
+          className="m-10 w-30"
           style={{ position: "relative" }}
         >
           <h2 className="mb-20 center">
             Write a message to Jenna.
           </h2>
+          <p className="mb-20" style={{textAlign: "center"}}>
+            We're collecting some nice messages to
+            help Jenna celebrate her birthday this
+            year. We'd love it if you could help us
+            out by <strong>leaving one below</strong>!
+          </p>
           <form
             onSubmit={(f) => {
               f.preventDefault();
@@ -107,20 +118,22 @@ export function Home({}: HomeProps) {
             }}
             className="w-100 col gap-10"
           >
-            {context.inShrink || <div
-              className="boxed col middle"
-              style={{
-                padding: "60px 20px",
-                zIndex: -1,
-                top: -90,
-                left: -20,
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                opacity: 0.9,
-                backdropFilter: "blur(10px)",
-              }}
-            />}
+            {context.inShrink || (
+              <div
+                className="boxed col middle"
+                style={{
+                  padding: "60px 20px",
+                  zIndex: -1,
+                  top: -90,
+                  left: -20,
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  opacity: 0.9,
+                  backdropFilter: "blur(10px)",
+                }}
+              />
+            )}
             <div
               className="mr-20"
               style={{ zIndex: 10 }}
@@ -155,11 +168,13 @@ export function Home({}: HomeProps) {
             </button>
           </form>
         </div>
-               {context.inShrink ||<JennaImages urls={jennaImages} />}
-
+        {context.inShrink || (
+          <JennaImages urls={jennaImages} />
+        )}
       </div>
       {messages.length > 0 && (
         <div className="m-10 pt-20 pb-20 col middle">
+            <h2 className="mb-20">What people have said!</h2>
           <div className="w-100 ">
             <Carousel
               resistance={30000}
@@ -174,7 +189,9 @@ export function Home({}: HomeProps) {
                     key={msg.id}
                     className="col gap-5 p-10 h-100 boxed outline-accent"
                     style={{
-                      width: context.inShrink ? 300 : 450,
+                      width: context.inShrink
+                        ? 300
+                        : 450,
                     }}
                   >
                     <p>"{msg.message}"</p>
@@ -186,6 +203,15 @@ export function Home({}: HomeProps) {
           </div>
         </div>
       )}
+      <div className="boxed center middle" style={{height: 200}}>
+<div className="gap-10 row middle center">
+    <Icon name="heart" color="var(--accent)"/>
+    <p>Developed by</p>
+    <a role="button" href="https://www.transformcreative.com.au" target="_blank" rel="noopener noreferrer">
+      Transform creative
+    </a>
+</div>
+      </div>
     </div>
   );
 }

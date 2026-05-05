@@ -1,5 +1,6 @@
 :root {
-  font-family: "sniglet", sans-serif;
+  font-family: "elms sans", sans-serif;
+  font-size: 14pt;
   line-height: 1;
   overflow-anchor: none;
 
@@ -170,9 +171,9 @@ textarea {
 
 a[role="button"] {
   background-color: var(--bg);
-  font-size: 10pt;
+  font-size: 14pt;
   border-radius: var(--border);
-  font-weight: 600;
+  font-weight: 800;
   transition: 1s;
   text-decoration: none;
   color: var(--txt);
@@ -189,6 +190,8 @@ textarea:focus {
   box-shadow: 0 0 0px 3px var(--accent) inset;
   transition: 0.25s;
 }
+
+
 
 .danger {
   box-shadow: 3px 3px 0px 1px var(--dangerColor);
