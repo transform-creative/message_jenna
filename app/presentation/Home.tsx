@@ -86,7 +86,7 @@ export function Home({}: HomeProps) {
         </h3>
       </PopUpModal>
       <div
-        className="w-100 col middle center "
+        className="w-100 col middle center mt-20 pt-20"
         style={{
           minHeight: "80vh",
           position: "relative",
@@ -99,74 +99,80 @@ export function Home({}: HomeProps) {
           color="var(--accent)"
         />
         <div
-          className="m-10 w-30"
+          className="m-10 w-50"
           style={{ position: "relative" }}
         >
-          <h2 className="mb-20 center">
-            Write a message to Jenna.
-          </h2>
-          <p className="mb-20" style={{textAlign: "center"}}>
-            We're collecting some nice messages to
-            help Jenna celebrate her birthday this
-            year. We'd love it if you could help us
-            out by <strong>leaving one below</strong>!
-          </p>
-          <form
-            onSubmit={(f) => {
-              f.preventDefault();
-              handleSubmit();
-            }}
-            className="w-100 col gap-10"
-          >
-            {context.inShrink || (
+          <div className={`${context.inShrink ? "m-20" : "m-0"}`}>
+            <h2 className="mb-20 center">
+              Write a message to Jenna.
+            </h2>
+            <p
+              className="mb-20"
+              style={{ textAlign: "center" }}
+            >
+              We're collecting some nice messages
+              to help Jenna celebrate her birthday
+              this year. We'd love it if you could
+              help us out by{" "}
+              <strong>leaving one below</strong>!
+            </p>
+            <form
+              onSubmit={(f) => {
+                f.preventDefault();
+                handleSubmit();
+              }}
+              className="w-100 col gap-10"
+            >
+              {context.inShrink || (
+                <div
+                  className="boxed col middle"
+                  style={{
+                    padding: "60px 20px",
+                    zIndex: -1,
+                    top: -90,
+                    left: -20,
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                    opacity: 0.9,
+                    backdropFilter: "blur(10px)",
+                  }}
+                />
+              )}
               <div
-                className="boxed col middle"
-                style={{
-                  padding: "60px 20px",
-                  zIndex: -1,
-                  top: -90,
-                  left: -20,
-                  position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  opacity: 0.9,
-                  backdropFilter: "blur(10px)",
-                }}
-              />
-            )}
-            <div
-              className="mr-20"
-              style={{ zIndex: 10 }}
-            >
-              <textarea
-                className="outline-accent"
-                style={{ minHeight: 250 }}
-                placeholder="Your message..."
-                value={messageText}
-                onChange={(e) =>
-                  setMessageText(e.target.value)
-                }
-              />
-            </div>
-            <div className="">
-              <input
-                placeholder="Your name"
-                className="w-100 outline-accent mb-10"
-                value={fromName}
-                onChange={(e) =>
-                  setFromName(e.target.value)
-                }
-              />
-            </div>
-            <button
-              className="accent w-100 row middle center gap-5"
-              type="submit"
-              disabled={loading}
-            >
-              <Icon name="mail-open" />
-              {loading ? "Sending..." : "Send"}
-            </button>
-          </form>
+                className="mr-20"
+                style={{ zIndex: 10 }}
+              >
+                <textarea
+                  className="outline-accent"
+                  style={{ minHeight: 250 }}
+                  placeholder="Your message..."
+                  value={messageText}
+                  onChange={(e) =>
+                    setMessageText(e.target.value)
+                  }
+                />
+              </div>
+              <div className="">
+                <input
+                  placeholder="Your name"
+                  className="w-100 outline-accent mb-10"
+                  value={fromName}
+                  onChange={(e) =>
+                    setFromName(e.target.value)
+                  }
+                />
+              </div>
+              <button
+                className="accent w-100 row middle center gap-5"
+                type="submit"
+                disabled={loading}
+              >
+                <Icon name="mail-open" />
+                {loading ? "Sending..." : "Send"}
+              </button>
+            </form>
+          </div>
         </div>
         {context.inShrink || (
           <JennaImages urls={jennaImages} />
@@ -174,7 +180,9 @@ export function Home({}: HomeProps) {
       </div>
       {messages.length > 0 && (
         <div className="m-10 pt-20 pb-20 col middle">
-            <h2 className="mb-20">What people have said!</h2>
+          <h2 className="mb-20 center">
+            What people have said!
+          </h2>
           <div className="w-100 ">
             <Carousel
               resistance={30000}
@@ -203,14 +211,25 @@ export function Home({}: HomeProps) {
           </div>
         </div>
       )}
-      <div className="boxed center middle" style={{height: 200}}>
-<div className="gap-10 row middle center">
-    <Icon name="heart" color="var(--accent)"/>
-    <p>Developed by</p>
-    <a role="button" href="https://www.transformcreative.com.au" target="_blank" rel="noopener noreferrer">
-      Transform creative
-    </a>
-</div>
+      <div
+        className="boxed center middle"
+        style={{ height: 200 }}
+      >
+        <div className="gap-10 row middle center">
+          <Icon
+            name="heart"
+            color="var(--accent)"
+          />
+          <p>Developed by</p>
+          <a
+            role="button"
+            href="https://www.transformcreative.com.au"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Transform creative
+          </a>
+        </div>
       </div>
     </div>
   );
