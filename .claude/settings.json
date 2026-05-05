@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\isaac\\\\Downloads\\\\message_jenna\" -Recurse -Force)",
+      "Bash(Select-Object -Property FullName, PSIsContainer)",
+      "Bash(ConvertTo-Json)",
+      "Bash(Test-Path \"c:\\\\Users\\\\isaac\\\\Downloads\\\\message_jenna\\\\app\\\\presentation\\\\JennaImages.tsx\")",
+      "Bash(Remove-Item -Path \"package-lock.json\" -Force -ErrorAction SilentlyContinue)",
+      "Bash(Remove-Item -Path \"node_modules\" -Recurse -Force -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"Cleaned up\")",
+      "Bash(npm install *)"
+    ]
+  }
+}
