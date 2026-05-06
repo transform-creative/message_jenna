@@ -8,7 +8,12 @@
       "Bash(Remove-Item -Path \"package-lock.json\" -Force -ErrorAction SilentlyContinue)",
       "Bash(Remove-Item -Path \"node_modules\" -Recurse -Force -ErrorAction SilentlyContinue)",
       "Bash(Write-Host \"Cleaned up\")",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(node -e \"console.log\\(process.versions.node\\); console.log\\(typeof globalThis.WebSocket\\)\")",
+      "Bash(node -e \"console.log\\('WebSocket:', typeof WebSocket\\); console.log\\('globalThis.WebSocket:', typeof globalThis.WebSocket\\); console.log\\('process.versions.node:', process.versions.node\\)\")",
+      "Bash(npm --version)",
+      "Bash(node -e \"const pkg = require\\('./node_modules/@supabase/realtime-js/package.json'\\); console.log\\(JSON.stringify\\(pkg.exports || pkg.main, null, 2\\)\\)\")",
+      "Bash(node -e \"const {WebSocketFactory} = require\\('./node_modules/@supabase/realtime-js/dist/main/lib/websocket-factory.js'\\); console.log\\(JSON.stringify\\(WebSocketFactory.detectEnvironment\\(\\), \\(key, val\\) => typeof val === 'function' ? 'function' : val, 2\\)\\)\")"
     ]
   }
 }
