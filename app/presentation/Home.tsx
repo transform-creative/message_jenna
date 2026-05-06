@@ -44,15 +44,37 @@ export function Home({}: HomeProps) {
   });
 
   useEffect(() => {
-    const birthday = DateTime.fromISO("2026-06-03", { zone: "local" }).startOf("day");
+    const birthday = DateTime.fromISO(
+      "2026-06-03",
+      { zone: "local" },
+    ).startOf("day");
     function update() {
       const now = DateTime.now();
-      const diff = birthday.diff(now, ["days", "hours", "minutes", "seconds"]).toObject();
+      const diff = birthday
+        .diff(now, [
+          "days",
+          "hours",
+          "minutes",
+          "seconds",
+        ])
+        .toObject();
       setCountdown({
-        days: Math.max(0, Math.floor(diff.days ?? 0)),
-        hours: Math.max(0, Math.floor(diff.hours ?? 0)),
-        minutes: Math.max(0, Math.floor(diff.minutes ?? 0)),
-        seconds: Math.max(0, Math.floor(diff.seconds ?? 0)),
+        days: Math.max(
+          0,
+          Math.floor(diff.days ?? 0),
+        ),
+        hours: Math.max(
+          0,
+          Math.floor(diff.hours ?? 0),
+        ),
+        minutes: Math.max(
+          0,
+          Math.floor(diff.minutes ?? 0),
+        ),
+        seconds: Math.max(
+          0,
+          Math.floor(diff.seconds ?? 0),
+        ),
       });
     }
     update();
@@ -118,52 +140,88 @@ export function Home({}: HomeProps) {
           zIndex: 10,
         }}
       >
-        <div className="col middle center mb-20">
-          <h2 className="center mb-10">Jenna's 21st Birthday</h2>
-          <p className="center mb-15" style={{ opacity: 0.7 }}>June 3rd, 2026</p>
-          <div className="row gap-10">
-            {[
-              { value: countdown.days, label: "Days" },
-              { value: countdown.hours, label: "Hours" },
-              { value: countdown.minutes, label: "Minutes" },
-              { value: countdown.seconds, label: "Seconds" },
-            ].map(({ value, label }) => (
-              <div
-                key={label}
-                className="col middle center boxed outline-accent p-10"
-                style={{ minWidth: 70 }}
-              >
-                <span style={{ fontSize: 32, fontWeight: 700, color: "var(--accent)" }}>
-                  {String(value).padStart(2, "0")}
-                </span>
-                <span style={{ fontSize: 12, opacity: 0.7 }}>{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
         <Icon
           name="heart"
           size={50}
           color="var(--accent)"
         />
+
         <div
           className="m-10 w-50"
           style={{ position: "relative" }}
         >
-          <div className={`${context.inShrink ? "m-20" : "m-0"}`}>
+          <div
+            className={`${context.inShrink ? "m-20" : "m-0"}`}
+          >
             <h2 className="mb-20 center">
-              Write a message to Jenna.
+              Write a message to Jenna for her
+              21st.
             </h2>
             <p
               className="mb-20"
               style={{ textAlign: "center" }}
             >
               We're collecting some nice messages
-              to help Jenna celebrate her birthday
-              this year. We'd love it if you could
-              help us out by{" "}
+              to help Jenna celebrate her 21st
+              birthday this year. We'd love it if
+              you could help us out by{" "}
               <strong>leaving one below</strong>!
             </p>
+            <div className="col middle center mb-20">
+              <div className="row gap-10">
+                {[
+                  {
+                    value: countdown.days,
+                    label: "Days",
+                  },
+                  {
+                    value: countdown.hours,
+                    label: "Hours",
+                  },
+                  {
+                    value: countdown.minutes,
+                    label: "Minutes",
+                  },
+                  {
+                    value: countdown.seconds,
+                    label: "Seconds",
+                  },
+                ].map(({ value, label }) => (
+                  <div
+                    key={label}
+                    className="col middle center boxed outline-accent p-10"
+                    style={{ minWidth: 70 }}
+                  >
+                    <span
+                      style={{
+                        fontSize: 32,
+                        fontWeight: 700,
+                        color: "var(--accent)",
+                      }}
+                    >
+                      {String(value).padStart(
+                        2,
+                        "0",
+                      )}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 12,
+                        opacity: 0.7,
+                      }}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <h3
+                className="center mt-10 accent pl-20 pr-20"
+                style={{ fontWeight: 700 }}
+              >
+                June 3rd, 2026
+              </h3>
+            </div>
             <form
               onSubmit={(f) => {
                 f.preventDefault();
